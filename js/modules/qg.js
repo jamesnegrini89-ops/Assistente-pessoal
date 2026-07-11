@@ -2,7 +2,7 @@ import {getAll,getSetting,setSetting,addActivity,getByIndex,put} from '../db.js'
 import {escapeHTML,navigate,pageHead,openModal,toast,uid,formatDate} from '../ui.js';
 
 const core=[
-  ['agora','⌂','AGORA','Prioridades contextuais e comando universal.'],['memoria','▤','MEMÓRIA VIVA','Linha do tempo, ideias e registros pessoais.'],['oraculo','◈','ORÁCULO','Análise estruturada de decisões e cenários.'],['forja','✦','FORJA','Criação de controles e miniaplicativos.'],['guia','?','VIP GUIA','Manual interativo offline e respostas ampliadas pelo Gemini.'],['guardiao','⬡','GUARDIÃO','PIN, backup, restauração e privacidade.'],['configuracoes','⚙','CONFIGURAÇÕES','Tema, perfil, modo e comportamento.']
+  ['agora','⌂','AGORA','Prioridades contextuais e comando universal.'],['finance','$','GÊMEO FINANCEIRO','Entradas, gastos, saldo, orçamento, recorrências e metas.'],['memoria','▤','MEMÓRIA VIVA','Linha do tempo, ideias e registros pessoais.'],['oraculo','◈','ORÁCULO','Análise estruturada de decisões e cenários.'],['forja','✦','FORJA','Criação de controles e miniaplicativos.'],['guia','?','VIP GUIA','Manual interativo offline e respostas ampliadas pelo Gemini.'],['guardiao','⬡','GUARDIÃO','PIN, backup, restauração e privacidade.'],['configuracoes','⚙','CONFIGURAÇÕES','Tema, perfil, modo e comportamento.']
 ];
 const modes=['Pessoal','Plantão','Pós-plantão','Folga','Casa','Estudo','Recuperação','Modo mínimo'];
 export async function renderQG(root,ctx){

@@ -7,6 +7,7 @@ const MAX_HISTORY=30;
 const starterQuestions=[
   'Como faço um backup?',
   'Como criar um checklist na FORJA?',
+  'Como registrar um gasto no GÊMEO FINANCEIRO?',
   'Como analisar uma compra no ORÁCULO?',
   'Onde configuro e testo o Gemini?',
   'Como pesquisar uma memória antiga?',
@@ -37,7 +38,7 @@ function formatPlainText(text=''){
   closeList();return html||'<p>Não encontrei conteúdo para exibir.</p>';
 }
 function localAnswer(entry){
-  if(!entry)return {title:'Não encontrei uma função específica',text:'Não consegui relacionar essa pergunta a uma ferramenta atual. Tente mencionar AGORA, QG, MEMÓRIA, ORÁCULO, FORJA, GUARDIÃO, CONFIGURAÇÕES, GEMINI ou VIP GUIA.',route:'guia',related:starterQuestions.slice(0,3)};
+  if(!entry)return {title:'Não encontrei uma função específica',text:'Não consegui relacionar essa pergunta a uma ferramenta atual. Tente mencionar AGORA, QG, FINANCEIRO, MEMÓRIA, ORÁCULO, FORJA, GUARDIÃO, CONFIGURAÇÕES, GEMINI ou VIP GUIA.',route:'guia',related:starterQuestions.slice(0,3)};
   const sections=[entry.summary,'','Como utilizar corretamente:',...entry.steps.map((step,index)=>`${index+1}. ${step}`)];
   if(entry.tips.length)sections.push('','Dica:',...entry.tips.map(t=>`• ${t}`));
   if(entry.warnings.length)sections.push('','Atenção:',...entry.warnings.map(w=>`• ${w}`));
@@ -95,7 +96,7 @@ export async function renderGuia(root,ctx){
     if(mode==='gemini'&&!ai.configured){toast('Configure e teste o Gemini em CONFIGURAÇÕES.','error');}
     try{
       if(shouldTryAI){
-        const systemInstruction=`Você é o VIP Guia, manual oficial do aplicativo Assistente Pessoal VIP Genesis 0.1.2. Responda em português do Brasil, com linguagem simples, precisa e acolhedora. Use SOMENTE a documentação fornecida. Não invente telas, botões, integrações ou funções futuras. Se a função não existir nesta versão, diga claramente. Dê passos numerados quando houver procedimento. Diferencie o que funciona offline do que exige internet. Não peça nem repita a chave API. Não transforme a resposta em aconselhamento médico, jurídico ou financeiro. Finalize com uma dica curta quando útil.`;
+        const systemInstruction=`Você é o VIP Guia, manual oficial do aplicativo Assistente Pessoal VIP Genesis 0.2.0. Responda em português do Brasil, com linguagem simples, precisa e acolhedora. Use SOMENTE a documentação fornecida. Não invente telas, botões, integrações ou funções futuras. Se a função não existir nesta versão, diga claramente. Dê passos numerados quando houver procedimento. Diferencie o que funciona offline do que exige internet. Não peça nem repita a chave API. Não transforme a resposta em aconselhamento médico, jurídico ou financeiro. Finalize com uma dica curta quando útil.`;
         const prompt=`PERGUNTA DO USUÁRIO:\n${question}\n\nDOCUMENTAÇÃO OFICIAL MAIS RELEVANTE:\n${manualContext(matches.length?matches:findManualEntries('visão geral',5))}\n\nResponda diretamente à pergunta. Quando houver uma rota interna útil, mencione o nome do módulo, mas não invente links.`;
         const result=await askGemini({apiKey:settings.geminiApiKey,model:settings.geminiModel,input:prompt,systemInstruction,maxOutputTokens:1200,temperature:0.2});
         answer={title:matches[0]?.title||'Resposta do VIP Guia',text:result.text,route:matches[0]?.route||'guia',related:matches[0]?.questions?.slice(0,3)||starterQuestions.slice(0,3),source:'Gemini',model:result.model};

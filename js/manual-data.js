@@ -1,7 +1,7 @@
 const entries = [
   {
     id:'visao-geral', module:'Assistente Pessoal VIP', icon:'◆', title:'O que é o Assistente Pessoal VIP?', route:'qg',
-    summary:'É uma PWA pessoal e modular que funciona prioritariamente no próprio aparelho. Nesta versão, reúne AGORA, QG, MEMÓRIA VIVA, ORÁCULO, FORJA, GUARDIÃO, CONFIGURAÇÕES e VIP GUIA.',
+    summary:'É uma PWA pessoal e modular que funciona prioritariamente no próprio aparelho. Nesta versão, reúne AGORA, QG, GÊMEO FINANCEIRO, MEMÓRIA VIVA, ORÁCULO, FORJA, GUARDIÃO, CONFIGURAÇÕES e VIP GUIA.',
     keywords:['aplicativo','app','assistente','vip','como funciona','funções','ferramentas','visão geral','inicio','começar'],
     questions:['Quais funções existem no aplicativo?','Por onde devo começar?','O aplicativo funciona sem internet?'],
     steps:['Conclua a configuração inicial e crie seu PIN.','Abra o AGORA para ver as prioridades sugeridas.','Use o QG para acessar todos os módulos.','Abra o VIP GUIA sempre que tiver dúvida sobre uma função.'],
@@ -61,6 +61,51 @@ const entries = [
     steps:['Abra MEMÓRIA.','Digite uma palavra no campo Pesquisar.','Opcionalmente selecione uma categoria.','Toque em Ver para abrir o conteúdo completo.'],
     tips:['Pesquise por uma etiqueta específica ou por uma palavra incomum do registro.'],
     warnings:[]
+  },
+  {
+    id:'financeiro-visao-geral', module:'GÊMEO FINANCEIRO', icon:'$', title:'Como funciona o GÊMEO FINANCEIRO?', route:'finance',
+    summary:'O GÊMEO FINANCEIRO reúne entradas, gastos, saldo geral estimado, resultado mensal, orçamento por categoria, compromissos recorrentes e metas financeiras.',
+    keywords:['financeiro','finanças','dinheiro','saldo','entrada','gasto','despesa','receita','planejamento financeiro','gêmeo financeiro'],
+    questions:['Onde registro meus gastos?','Como vejo meu saldo?','Quais ferramentas financeiras existem?'],
+    steps:['Abra o GÊMEO FINANCEIRO pelo QG ou menu lateral.','Escolha o mês que deseja analisar.','Use + Movimentação para registrar uma entrada ou gasto.','Consulte o resultado do mês, orçamento, projeção e metas na Visão geral.'],
+    tips:['Registre as movimentações no dia em que acontecerem para manter o saldo e os relatórios corretos.'],
+    warnings:['Os cálculos dependem dos valores cadastrados por você e não substituem extratos bancários ou orientação financeira profissional.']
+  },
+  {
+    id:'financeiro-movimentacoes', module:'GÊMEO FINANCEIRO', icon:'⇄', title:'Como registrar entradas e gastos?', route:'finance?view=transactions',
+    summary:'Cada movimentação possui tipo, data, descrição, valor, conta, categoria e observações opcionais.',
+    keywords:['registrar gasto','registrar entrada','nova movimentação','salário','compra','despesa','receita','transação'],
+    questions:['Como registrar um gasto?','Como registrar meu salário?','Posso editar ou excluir uma movimentação?'],
+    steps:['Abra GÊMEO FINANCEIRO.','Toque em + Movimentação ou abra Movimentações.','Escolha Entrada ou Gasto.','Informe data, descrição, valor, conta e categoria.','Toque em Salvar movimentação.','Para corrigir um lançamento, use Editar; para removê-lo, use Excluir.'],
+    tips:['Use descrições objetivas, como “Supermercado” ou “Salário de julho”.'],
+    warnings:['Excluir uma movimentação altera imediatamente o saldo e os relatórios.']
+  },
+  {
+    id:'financeiro-planejamento', module:'GÊMEO FINANCEIRO', icon:'▥', title:'Como usar orçamento e recorrências?', route:'finance?view=planning',
+    summary:'O planejamento permite definir um limite mensal por categoria e cadastrar entradas ou gastos que se repetem todo mês.',
+    keywords:['orçamento','limite mensal','categoria','recorrência','conta fixa','gasto fixo','planejamento mensal','projeção'],
+    questions:['Como limitar gastos por categoria?','Como cadastrar uma conta fixa?','O valor recorrente altera o saldo automaticamente?'],
+    steps:['Abra GÊMEO FINANCEIRO e escolha Planejamento.','Use + Orçamento para definir o limite de uma categoria no mês.','Use + Recorrência para cadastrar salário, aluguel, internet ou outro compromisso mensal.','Acompanhe a porcentagem utilizada e o resultado planejado.'],
+    tips:['Cadastre as contas fixas como recorrências e depois registre a movimentação real quando ela for paga ou recebida.'],
+    warnings:['A recorrência serve para projeção e não cria automaticamente uma movimentação no saldo.']
+  },
+  {
+    id:'financeiro-metas', module:'GÊMEO FINANCEIRO', icon:'◎', title:'Como criar e acompanhar uma meta financeira?', route:'finance?view=goals',
+    summary:'As metas registram o valor desejado, quanto já foi acumulado, prazo opcional e progresso percentual.',
+    keywords:['meta financeira','reserva','economizar','juntar dinheiro','objetivo','progresso','prazo'],
+    questions:['Como criar uma reserva de emergência?','Como atualizar o valor acumulado?','Quando uma meta é concluída?'],
+    steps:['Abra GÊMEO FINANCEIRO e escolha Metas.','Toque em + Nova meta.','Informe nome, valor desejado, valor acumulado e prazo opcional.','Salve a meta.','Use Atualizar sempre que aumentar ou corrigir o valor acumulado.'],
+    tips:['Crie metas específicas e mensuráveis, como “Reserva de emergência — R$ 10.000”.'],
+    warnings:['O valor acumulado da meta é informativo e não é descontado automaticamente de uma conta.']
+  },
+  {
+    id:'financeiro-contas-categorias', module:'GÊMEO FINANCEIRO', icon:'▣', title:'Como configurar contas e categorias?', route:'finance?view=setup',
+    summary:'Contas representam onde o dinheiro está. Categorias organizam o motivo de cada entrada ou gasto.',
+    keywords:['conta corrente','carteira','poupança','categoria financeira','criar categoria','saldo inicial','configurar financeiro'],
+    questions:['Como adicionar uma conta bancária?','O que é saldo inicial?','Posso criar uma categoria própria?'],
+    steps:['Abra GÊMEO FINANCEIRO e escolha Contas e categorias.','Use + Conta para cadastrar conta corrente, carteira, poupança ou outro local.','Informe o saldo existente antes de começar a registrar movimentações.','Use + Categoria para criar classificações personalizadas.'],
+    tips:['Evite duplicar contas ou categorias com nomes muito parecidos.'],
+    warnings:['Contas e categorias que já estejam em uso não podem ser excluídas até que os registros relacionados sejam removidos ou alterados.']
   },
   {
     id:'oraculo-criar', module:'ORÁCULO', icon:'◈', title:'Como analisar uma decisão no ORÁCULO?', route:'oraculo?action=new',
@@ -192,7 +237,7 @@ const entries = [
 
 export const MANUAL_ENTRIES = Object.freeze(entries);
 export const MANUAL_CATEGORIES = Object.freeze([
-  ['agora-prioridades','AGORA'],['qg-central','QG'],['memoria-criar','MEMÓRIA'],['oraculo-criar','ORÁCULO'],
+  ['agora-prioridades','AGORA'],['qg-central','QG'],['financeiro-visao-geral','FINANCEIRO'],['memoria-criar','MEMÓRIA'],['oraculo-criar','ORÁCULO'],
   ['forja-criar','FORJA'],['guardiao-backup','GUARDIÃO'],['configuracoes-perfil','CONFIGURAÇÕES'],['gemini-configurar','GEMINI'],['vip-guia','VIP GUIA']
 ]);
 

@@ -1,33 +1,32 @@
-ASSISTENTE PESSOAL VIP — ATUALIZAÇÃO 0.1.2
-Módulo: VIP GUIA
+ASSISTENTE PESSOAL VIP — ATUALIZAÇÃO GÊMEO FINANCEIRO 0.2.0
 
-COMO ATUALIZAR NO GITHUB
-1. Extraia este arquivo ZIP no computador.
-2. Abra o repositório do Assistente Pessoal VIP no GitHub.
+PRÉ-REQUISITO
+- O GitHub deve estar com a versão Genesis 0.1.2.
+- Faça um backup em GUARDIÃO antes de atualizar.
+
+COMO INSTALAR
+1. Extraia este ZIP no computador.
+2. No GitHub, abra o repositório do aplicativo.
 3. Clique em Add file > Upload files.
-4. Envie TODO o conteúdo extraído, preservando as pastas js e js/modules.
-5. Confirme a substituição dos arquivos existentes.
-6. Clique em Commit changes.
-7. Aguarde o GitHub Pages publicar.
-8. Feche completamente a PWA e abra novamente.
-9. Se a versão antiga continuar, atualize a página no navegador ou reinstale o atalho.
+4. Envie TODOS os arquivos e pastas deste pacote para a raiz do repositório.
+5. Preserve a estrutura das pastas js e js/modules.
+6. Confirme a substituição dos arquivos com o mesmo nome.
+7. Clique em Commit changes.
+8. Após o GitHub Pages atualizar, feche totalmente a PWA e abra novamente.
 
-NOVOS ARQUIVOS IMPORTANTES
-- js/manual-data.js
-- js/modules/guia.js
+NOVO ARQUIVO OBRIGATÓRIO
+- js/modules/financeiro.js
 
 O QUE FOI ADICIONADO
-- VIP Guia acessível pelo botão ? no topo e pelo QG.
-- Manual completo que funciona offline.
-- Respostas ampliadas pelo Gemini configurado em CONFIGURAÇÕES.
-- Modos Automático, Somente offline e Preferir Gemini.
-- Perguntas por voz em navegadores compatíveis.
-- Botões para abrir diretamente a função explicada.
-- Histórico local e limpeza de conversa.
-- Fallback automático para o manual offline quando a IA falhar.
+- Entradas e gastos
+- Saldo geral estimado
+- Contas e categorias
+- Orçamento mensal por categoria
+- Compromissos recorrentes
+- Projeção mensal
+- Metas financeiras
+- Integração com AGORA, QG, ORÁCULO e VIP GUIA
+- Dados financeiros incluídos no backup do GUARDIÃO
 
-SEGURANÇA
-- A chave API não está incluída neste ZIP.
-- O VIP Guia usa a chave salva no navegador.
-- As chamadas usam store:false.
-- Não escreva senhas, chaves ou dados sigilosos nas perguntas.
+DADOS EXISTENTES
+A atualização do IndexedDB preserva os dados atuais. Não apague os arquivos antigos manualmente; apenas substitua os arquivos indicados pelo pacote.

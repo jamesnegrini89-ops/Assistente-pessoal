@@ -64,6 +64,17 @@
       ]
     },
     {
+      "name": "Nova movimentação",
+      "short_name": "Financeiro",
+      "url": "./#finance?view=transactions",
+      "icons": [
+        {
+          "src": "./assets/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
       "name": "VIP Guia",
       "short_name": "Guia",
       "url": "./#guia",
