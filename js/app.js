@@ -9,7 +9,7 @@ import {renderForja} from './modules/forja.js';
 import {renderGuardiao,handleImportFile} from './modules/guardiao.js';
 import {renderConfiguracoes} from './modules/configuracoes.js';
 
-const APP_VERSION='0.1.0';
+const APP_VERSION='0.1.1';
 const renderers={agora:renderAgora,qg:renderQG,memoria:renderMemoria,oraculo:renderOraculo,forja:renderForja,guardiao:renderGuardiao,configuracoes:renderConfiguracoes};
 let settings={};
 let currentRoute='agora';

@@ -1,5 +1,6 @@
 const DB_NAME = 'assistente_pessoal_vip_db';
 const DB_VERSION = 1;
+const SECRET_SETTING_KEYS = new Set(['geminiApiKey']);
 export const STORES = ['settings','memories','decisions','forgeModules','forgeRecords','activity'];
 let dbPromise;
 
@@ -45,15 +46,24 @@ export async function setSetting(key,value){return put('settings',{key,value,upd
 export async function getSettings(){const rows=await getAll('settings');return Object.fromEntries(rows.map(r=>[r.key,r.value]));}
 export async function addActivity(type,message,meta={}){return put('activity',{id:crypto.randomUUID(),type,message,meta,createdAt:new Date().toISOString()});}
 export async function exportAll(){
-  const payload={schema:'assistente-pessoal-vip',version:1,exportedAt:new Date().toISOString(),stores:{}};
-  for(const name of STORES) payload.stores[name]=await getAll(name);
+  const payload={schema:'assistente-pessoal-vip',version:1,exportedAt:new Date().toISOString(),excludedSecrets:[...SECRET_SETTING_KEYS],stores:{}};
+  for(const name of STORES){
+    const rows=await getAll(name);
+    payload.stores[name]=name==='settings'?rows.filter(row=>!SECRET_SETTING_KEYS.has(row.key)):rows;
+  }
   return payload;
 }
 export async function importAll(payload){
   if(!payload || payload.schema!=='assistente-pessoal-vip' || !payload.stores) throw new Error('Arquivo de backup incompatível.');
+  const localSecrets={};
+  for(const key of SECRET_SETTING_KEYS)localSecrets[key]=await getSetting(key,null);
   for(const name of STORES){
     await clearStore(name);
-    for(const item of (payload.stores[name]||[])) await put(name,item);
+    for(const item of (payload.stores[name]||[])){
+      if(name==='settings'&&SECRET_SETTING_KEYS.has(item?.key))continue;
+      await put(name,item);
+    }
   }
+  for(const [key,value] of Object.entries(localSecrets))if(value!==null&&value!==undefined)await setSetting(key,value);
 }
 export async function clearAll(){for(const name of STORES) await clearStore(name);}

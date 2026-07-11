@@ -1,0 +1,20 @@
+ATUALIZAÇÃO GEMINI — ASSISTENTE PESSOAL VIP 0.1.1
+
+Envie estes arquivos para a raiz do repositório, mantendo exatamente as pastas.
+Substitua os arquivos existentes quando o GitHub perguntar.
+
+ARQUIVO NOVO:
+- js/gemini.js
+
+ARQUIVOS SUBSTITUÍDOS:
+- index.html
+- styles.css
+- sw.js
+- js/app.js
+- js/db.js
+- js/modules/configuracoes.js
+- js/modules/guardiao.js
+
+Depois do commit, aguarde o GitHub Pages publicar. Feche e abra novamente a PWA. Se ainda aparecer a versão antiga, atualize a página no navegador ou remova e instale novamente o atalho.
+
+A chave API não está neste pacote. Ela será digitada dentro do aplicativo em CONFIGURAÇÕES > Inteligência Artificial.
