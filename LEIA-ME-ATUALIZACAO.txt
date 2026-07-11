@@ -1,0 +1,19 @@
+ASSISTENTE PESSOAL VIP — GENESIS 0.1.0
+PACOTE DE ATUALIZAÇÃO PARA GITHUB PAGES
+
+1. Antes de atualizar, preserve uma cópia do repositório QG 360 atual.
+2. Na raiz do repositório, exclua o arquivo antigo: app.js
+3. Substitua os arquivos existentes por estes:
+   - index.html
+   - styles.css
+   - manifest.webmanifest
+   - sw.js
+   - 404.html
+   - .nojekyll
+   - assets/icon-192.png
+   - assets/icon-512.png
+4. Adicione a nova pasta js completa, incluindo js/modules.
+5. Não envie a pasta externa criada pelo descompactador; envie os arquivos e pastas que estão dentro dela para a raiz do repositório.
+6. Após publicar, abra o endereço do GitHub Pages. Se ainda aparecer a versão antiga, feche o aplicativo, limpe o cache/site ou desinstale e reinstale a PWA.
+
+A primeira abertura iniciará a configuração guiada e solicitará a criação de um PIN de 4 a 8 números.
