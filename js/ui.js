@@ -1,5 +1,5 @@
 export const ROUTES={
-  agora:{label:'AGORA',icon:'⌂'},qg:{label:'QG',icon:'◇'},oraculo:{label:'ORÁCULO',icon:'◈'},forja:{label:'FORJA',icon:'✦'},memoria:{label:'MEMÓRIA',icon:'▤'},guardiao:{label:'GUARDIÃO',icon:'⬡'},configuracoes:{label:'CONFIGURAÇÕES',icon:'⚙'}
+  agora:{label:'AGORA',icon:'⌂'},qg:{label:'QG',icon:'◇'},oraculo:{label:'ORÁCULO',icon:'◈'},forja:{label:'FORJA',icon:'✦'},memoria:{label:'MEMÓRIA',icon:'▤'},guia:{label:'VIP GUIA',icon:'?'},guardiao:{label:'GUARDIÃO',icon:'⬡'},configuracoes:{label:'CONFIGURAÇÕES',icon:'⚙'}
 };
 export const CORE_MOBILE=['agora','qg','oraculo','forja','memoria'];
 export const $=(selector,root=document)=>root.querySelector(selector);

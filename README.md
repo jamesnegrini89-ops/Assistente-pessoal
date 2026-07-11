@@ -1,4 +1,4 @@
-# Assistente Pessoal VIP — Genesis 0.1.0
+# Assistente Pessoal VIP — Genesis 0.1.2
 
 Primeira fundação modular do antigo QG 360, preparada para GitHub Pages e instalação no celular como PWA.
 
@@ -9,8 +9,9 @@ Primeira fundação modular do antigo QG 360, preparada para GitHub Pages e inst
 - **MEMÓRIA VIVA:** registros, categorias, etiquetas, pesquisa e linha do tempo.
 - **ORÁCULO:** comparação de duas alternativas por benefício, custo, risco, urgência e reversibilidade.
 - **FORJA:** criação de checklist, cadastro, diário e rastreador com campos personalizados.
+- **VIP GUIA:** manual interativo offline, perguntas por voz, atalhos e respostas ampliadas pelo Gemini.
 - **GUARDIÃO:** PIN, bloqueio automático, backup, restauração, registro de atividades e reinicialização.
-- **CONFIGURAÇÕES:** perfil, tema, tamanho do texto e modo atual.
+- **CONFIGURAÇÕES:** perfil, tema, tamanho do texto, modo atual e conexão com a Gemini API.
 
 ## Publicar no GitHub Pages
 
@@ -41,7 +42,7 @@ O PIN desta versão bloqueia a interface e armazena somente um hash derivado por
 
 ## IA
 
-A versão Genesis não publica nem solicita chave de API. Uma integração futura deverá usar uma ponte segura, mantendo segredos fora do código do GitHub Pages.
+A área de CONFIGURAÇÕES permite inserir uma chave Gemini apenas no banco local do navegador, informar o modelo e testar a conexão. A chave não é publicada no GitHub e não é incluída no backup JSON. Por ser uma PWA cliente, a arquitetura mais segura para uso futuro continua sendo uma ponte de servidor.
 
 ## Execução local para testes
 
@@ -52,3 +53,7 @@ python -m http.server 8080
 ```
 
 Depois acesse `http://localhost:8080`.
+
+## VIP GUIA
+
+Manual interativo que funciona offline e pode ampliar respostas com o Gemini configurado em CONFIGURAÇÕES.

@@ -35,6 +35,7 @@ export async function renderAgora(root,ctx){
     if(/mem[oó]ria|registr|ideia|anota/.test(text)) navigate('memoria','?action=new');
     else if(/decis|or[aá]culo|escolh|comprar|vale a pena/.test(text)) navigate('oraculo','?action=new');
     else if(/forja|m[oó]dulo|controle|checklist|rastreador|di[aá]rio/.test(text)) navigate('forja','?action=new');
+    else if(/manual|ajuda|duvida|dúvida|como funciona|tutorial|vip guia/.test(text)) navigate('guia');
     else if(/backup|seguran|pin|bloque/.test(text)) navigate('guardiao');
     else if(/config|tema|nome|letra/.test(text)) navigate('configuracoes');
     else {toast('Não identifiquei o comando. Abra o QG para escolher uma área.','error');navigate('qg');}
